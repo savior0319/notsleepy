@@ -14,44 +14,49 @@
 
 <body>
     <jsp:include page="/Layouts/nav.jsp"></jsp:include>
-    <br>
-    <br>
-    <br>
-    <div class="ui container">
+    <div class="ui main text container" style="margin-top: 80px;">
         <div class="ui centered align header">
             <div class="ui message box">장소선택</div>
         </div>
         <div class="map_wrap">
             <div id="map" style="width: 100%; height: 60%; position: relative; overflow: hidden;"></div>
-
-            <div id="menu_wrap" class="bg_white">
+            <div id="search_wrap" class="bg_white">
                 <div class="option">
                     <div>
                         <form class="ui form" onsubmit="searchPlaces(); return false;">
                             <div class="ui centered align tiny header">
                                 <div class="ui tiny message box">검색</div>
-                            </div> <input type="text" value="이번지깡통집" id="keyword" size="15">
+                            </div>
+                            <input type="text" value="계양구청" id="keyword" size="15">
                             <button class="ui primary tiny button" type="submit"
-                                style="margin-top : 10px; margin-bottom : 5px;">검색하기</button>
+                                style="margin-top: 10px; margin-bottom: 5px;">검색하기</button>
                         </form>
                     </div>
                 </div>
                 <hr>
+            </div>
+            <div id="menu_wrap" class="bg_white">
                 <ul id="placesList"></ul>
                 <div id="pagination"></div>
             </div>
             <div>
-                <form class="ui form">
+                <form class="ui form" style="padding-bottom: 80px;">
                     <label>장소</label>
-                    <input type="text" name="location" id="location" required readonly><br>
+                    <input type="text" name="location" id="location" required readonly>
+                    <br>
                     <label>주소</label>
-                    <input type="text" name="address" id="address" required readonly><br>
+                    <input type="text" name="address" id="address" required readonly>
+                    <br>
+                    <div class="ui column centered grid">
+                        <button class="ui orange button" style="margin-top : 30px;" onclick="nextBtn();">다음</button>
+                    </div>
                     <!-- <label>전화번호</label>
                     <input type="text" name="" id=""><br> -->
                 </form>
             </div>
         </div>
     </div>
+    <jsp:include page="/Layouts/footer.jsp"></jsp:include>
 </body>
 
 <script>
@@ -154,7 +159,8 @@
     function getListItem(index, places) {
 
         var el = document.createElement('li'),
-            itemStr = '<div id="valueSelector" onclick="selectAddr(this);">' + '<span class="markerbg marker_' +
+            itemStr = '<div id="valueSelector" onclick="selectAddr(this);">' +
+            '<span class="markerbg marker_' +
             (index + 1) +
             '"></span>' +
             '<div class="info">' +
@@ -162,14 +168,16 @@
             places.place_name + '</h5>';
 
         if (places.road_address_name) {
-            itemStr += '    <span id="placeRoadAddr">' + places.road_address_name + '</span>' +
+            itemStr += '    <span id="placeRoadAddr">' +
+                places.road_address_name + '</span>' +
                 '   <span class="jibun gray">' + places.address_name +
                 '</span>';
         } else {
             itemStr += '    <span>' + places.address_name + '</span>';
         }
 
-        itemStr += '  <span class="tel">' + places.phone + '</span>' + '</div></div>';
+        itemStr += '  <span class="tel">' + places.phone + '</span>' +
+            '</div></div>';
 
         el.innerHTML = itemStr;
         el.className = 'item';
@@ -264,8 +272,13 @@
             spanVal = span.item(i);
             $("#address").val(spanVal.innerHTML);
         }
+        $('html, body').scrollTop(document.body.scrollHeight);
+    }
 
-
+    function nextBtn() {
+        if ($("#location").val() == "" && $("#address").val() == "") {
+            alert('장소를 선택하세요');
+        } else alert('준비중');
     }
 </script>
 

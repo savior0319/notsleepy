@@ -4,16 +4,25 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>메인페이지</title>
-    <jsp:include page="/Layouts/resource.jsp"></jsp:include>
+	<meta charset="UTF-8">
+	<title>메인페이지</title>
+	<jsp:include page="/Layouts/resource.jsp"></jsp:include>
 </head>
 
-<body>
-    <jsp:include page="/Layouts/nav.jsp"></jsp:include>
-    <div class="ui container">
+<style>
+	#mainImage {
+		margin-top: 80px;
+		opacity: 0.7;
+		width: 100%;
+	}
+</style>
 
-    </div>
+<body>
+	<jsp:include page="/Layouts/nav.jsp"></jsp:include>
+	<div class="ui main text container">
+		<img id="mainImage" src="/Image/mainImage1.jpg">
+	</div>
+	<jsp:include page="/Layouts/footer.jsp"></jsp:include>
 </body>
 
 <script type="text/javascript">
