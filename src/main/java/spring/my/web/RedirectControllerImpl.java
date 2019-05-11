@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class RedirectControllerImpl implements RedirectController{
 
 	@Override
-	@RequestMapping(value = "/thunder.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/thunder.sleep", method = RequestMethod.GET)
 	public String addRedirect() {
 		return "thunder";
 	}
