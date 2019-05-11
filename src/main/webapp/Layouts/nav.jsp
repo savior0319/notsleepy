@@ -3,7 +3,7 @@
 	<div class="ui container">
 		<a href="/" class="header item">
 		<!--  <img class="logo" src="assets/images/logo.png"> -->
-			인천부천2030🙋‍♀️동네친구만들기👏
+			TEST
 		<!-- Test -->
 		</a>
 		<a href="/" class="item">홈</a>
