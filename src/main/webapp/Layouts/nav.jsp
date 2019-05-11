@@ -7,7 +7,7 @@
 		<!-- Test -->
 		</a>
 		<a href="/" class="item">홈</a>
-		<a class="item" href="/thunder.ns">추가</a>
+		<a class="item" href="/thunder.slp">추가</a>
 		<!-- <div class="ui simple dropdown item">
 			메뉴
 			<i class="dropdown icon"></i>

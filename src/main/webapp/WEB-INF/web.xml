@@ -19,7 +19,7 @@
 
 	<filter-mapping>
 		<filter-name>characterEncoding</filter-name>
-		<url-pattern>*.ns</url-pattern>
+		<url-pattern>*.slp</url-pattern>
 	</filter-mapping>
 
 
@@ -48,7 +48,7 @@
 	<!-- Servlet Mapping -->
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>*.ns</url-pattern>
+		<url-pattern>*.slp</url-pattern>
 	</servlet-mapping>
 
 </web-app>
