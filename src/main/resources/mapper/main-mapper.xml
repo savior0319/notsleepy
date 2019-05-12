@@ -10,8 +10,6 @@
 		       INSERT_USER         AS insertUser,
 		       CITY_CODE           AS cityCode
 		FROM CITYTBL
-		ORDER BY CITY_FIRST_SECTION DESC,
-		         CITY_SECOND_SECTION
 	</select>
 
 </mapper>
