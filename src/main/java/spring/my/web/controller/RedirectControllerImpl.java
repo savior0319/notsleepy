@@ -1,15 +1,16 @@
-package spring.my.web;
+package spring.my.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class RedirectControllerImpl implements RedirectController{
+public class RedirectControllerImpl implements RedirectController {
 
 	@Override
 	@RequestMapping(value = "/place.slp", method = RequestMethod.GET)
-	public String addRedirect() {
+	public String placeRedirect() {
 		return "place";
 	}
+
 }

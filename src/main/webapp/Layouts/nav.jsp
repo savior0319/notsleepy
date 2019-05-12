@@ -7,7 +7,8 @@
 		<!-- Test -->
 		</a>
 		<a href="/" class="item">홈</a>
-		<a class="item" href="/place.slp">추가</a>
+		<a class="item" href="/place.slp">추가1</a>
+		<a class="item" href="/add.slp">추가2</a>
 		<!-- <div class="ui simple dropdown item">
 			메뉴
 			<i class="dropdown icon"></i>

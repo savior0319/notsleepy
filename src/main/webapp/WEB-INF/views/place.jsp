@@ -48,7 +48,7 @@
                     <input type="text" name="address" id="address" required readonly>
                     <br>
                     <div class="ui column centered grid">
-                        <button class="ui orange button" style="margin-top : 30px;" onclick="nextBtn();">다음</button>
+                        <button class="ui orange button" style="margin-top : 30px;" onclick="return nextBtn();">다음</button>
                     </div>
                     <!-- <label>전화번호</label>
                     <input type="text" name="" id=""><br> -->
@@ -278,7 +278,10 @@
     function nextBtn() {
         if ($("#location").val() == "" && $("#address").val() == "") {
             alert('장소를 선택하세요');
-        } else alert('준비중');
+        } else {
+            alert('준비중');
+            return false;
+        };
     }
 </script>
 

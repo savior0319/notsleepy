@@ -3,6 +3,7 @@
 <configuration>
 
 	<typeAliases>
+		<typeAlias type="spring.my.web.vo.CityVO" alias="city" />
 	</typeAliases>
 
 </configuration>
