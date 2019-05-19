@@ -40,15 +40,19 @@
                 <div id="pagination"></div>
             </div>
             <div>
-                <form class="ui form" style="padding-bottom: 80px;">
+                <form action="/placesave.slp" method="POST" class="ui form" style="padding-bottom: 80px;">
                     <label>장소</label>
                     <input type="text" name="location" id="location" required readonly>
                     <br>
                     <label>주소</label>
                     <input type="text" name="address" id="address" required readonly>
                     <br>
+                    <label>비밀번호</label>
+                    <input type="password" name="password" id="password" required>
+                    <br>
                     <div class="ui column centered grid">
-                        <button class="ui orange button" style="margin-top : 30px;" onclick="return nextBtn();">다음</button>
+                        <button class="ui orange button" style="margin-top : 30px;"
+                            onclick="return nextBtn();">다음</button>
                     </div>
                     <!-- <label>전화번호</label>
                     <input type="text" name="" id=""><br> -->
@@ -278,10 +282,18 @@
     function nextBtn() {
         if ($("#location").val() == "" && $("#address").val() == "") {
             alert('장소를 선택하세요');
-        } else {
-            alert('준비중');
             return false;
-        };
+        }
+
+        if ($("#password").val() == "") {
+            alert('비밀번호를 입력하세요');
+            return false;
+        }
+
+        //else {
+        //    alert('준비중');
+        //    return false;
+        // };
     }
 </script>
 
