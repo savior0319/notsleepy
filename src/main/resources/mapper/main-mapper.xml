@@ -3,13 +3,35 @@
 <mapper namespace="main">
 
 	<select id="selectAddress" resultType="city">
-		SELECT CITY_SEQ            AS citySeq,
-		       CITY_FIRST_SECTION  AS cityFirstSection,
-		       CITY_SECOND_SECTION AS citySecondSection,
-		       INSERT_DATE         AS insertDate,
-		       INSERT_USER         AS insertUser,
-		       CITY_CODE           AS cityCode
+		SELECT /* selectAddress by MainController addRedirect Method */
+			CITY_SEQ AS citySeq,
+			CITY_FIRST_SECTION AS cityFirstSection,
+			CITY_SECOND_SECTION AS citySecondSection,
+			INSERT_DATE AS insertDate,
+			INSERT_USER AS insertUser,
+			CITY_CODE AS cityCode
 		FROM CITYTBL
 	</select>
+
+	<insert id="insertUser" parameterType="user">
+		INSERT /* insertUser by MainController addprocess Method */
+		INTO USERTBL
+		  (USER_SEQ, 
+		   DELETE_YN,
+		   USER_NAME,
+		   USER_GENDER,
+		   USER_AGE,
+		   USER_ADDR,
+		   INSERT_DATE,
+		   INSERT_USER)
+		VALUES (NULL,
+		    DEFAULT,
+		    #{userName},
+		    #{userGender},
+		    #{userAge},
+		    #{userAddr},
+		    NOW(),
+		    DEFAULT)
+	</insert>
 
 </mapper>

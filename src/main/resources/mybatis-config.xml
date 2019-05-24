@@ -4,6 +4,7 @@
 
 	<typeAliases>
 		<typeAlias type="spring.my.web.vo.CityVO" alias="city" />
+		<typeAlias type="spring.my.web.vo.UserVO" alias="user" />
 	</typeAliases>
 
 </configuration>

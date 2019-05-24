@@ -24,10 +24,11 @@
 			<div class="ui message box">추가</div>
 		</div>
 
-		<form class="ui form" action="/addprocess.slp" method="get">
+		<form class="ui form" action="/addprocess.slp" method="POST">
 			<legend>
 				<label>이름</label>
-				<input type="text" placeholder="이름" id="userName" name="userName" required>
+				<input type="text" placeholder="이름" id="userName" name="userName" required maxlength="12">
+				<br> <br>
 				<label>나이</label>
 				<select name="userAge" id="userAge">
 					<option value="20">20</option>
@@ -51,29 +52,44 @@
 					<option value="38">38</option>
 					<option value="39">39</option>
 				</select>
+				<div class="ui form">
+					<div>
+						<br>
+						<label>성별</label>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="userGender" id="userGenderM" required value="M">
+								<label>남</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="userGender" id="userGenderF" required value="F">
+								<label>여</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+				<label>지역</label>
+				<select name="userAddr" id="userAddr" required>
+					<c:forEach items="${requestScope.city}" var="c">
+						<option value="${c.cityFirstSection} ${c.citySecondSection}">${c.cityFirstSection} ${c.citySecondSection}</option>
+					</c:forEach>
+				</select>
+				<br>
+				<label>비밀번호</label>
+				<input type="password" name="password" id="password" required maxlength="10">
+				<div class="ui column centered grid" style="margin-top : 20px;">
+					<button class="ui orange button" onclick="return savebtn();">추가</button>
+				</div>
 			</legend>
-			<label>지역</label>
-			<select name="city" id="city" required>
-				<c:forEach items="${requestScope.city}" var="c">
-					<option value="${c.citySecondSection}">${c.cityFirstSection} ${c.citySecondSection}</option>
-				</c:forEach>
-			</select>
-			<div class="ui column centered grid" style="margin-top : 20px;">
-				<button class="ui orange button" onclick="return savebtn();">저장</button>
-			</div>
 		</form>
-
 	</div>
 	<jsp:include page="/Layouts/footer.jsp"></jsp:include>
 </body>
 
 <script>
-	function savebtn() {
-		if ($("#userName").val() != '') {
-			alert('준비중');
-			return false;
-		} 
-	}
 </script>
 
 </html>

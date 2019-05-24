@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import spring.my.web.dao.MainDAO;
 import spring.my.web.vo.CityVO;
+import spring.my.web.vo.UserVO;
 
 @Service(value = "MainService")
 public class MainServiceImpl implements MainService {
@@ -26,6 +27,11 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public ArrayList<CityVO> getAddress() {
 		return md.selectAddress(session);
+	}
+
+	@Override
+	public int insertUser(UserVO uv) {
+		return md.insertUser(session, uv);
 	}
 
 }
