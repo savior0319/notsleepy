@@ -37,7 +37,7 @@
 			</tbody>
 		</table>
 		<br>
-		<div class="ui column centered grid" style="margin-bottom: 50px; padding-bottom: 70px;" >
+		<div class="ui column centered grid" style="margin-bottom: 50px; padding-bottom: 80px;" >
 			<button class="ui primary button" onclick="confirm();">확인</button>
 		</div>
 	</div>
