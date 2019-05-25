@@ -11,4 +11,6 @@ public interface MainService {
 
 	public int insertUser(UserVO uv);
 
+	public ArrayList<UserVO> selectAllUser();
+
 }

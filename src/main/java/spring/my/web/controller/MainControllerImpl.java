@@ -25,6 +25,18 @@ public class MainControllerImpl implements MainController {
 	@Resource(name = "MainService")
 	private MainService ms;
 
+	/* 추가1 페이지 */
+	@Override
+	@RequestMapping(value = "/place.slp", method = RequestMethod.GET)
+	public ModelAndView placeRedirect() {
+		ModelAndView mv = new ModelAndView();
+		ArrayList<UserVO> aList = ms.selectAllUser();
+		mv.addObject("user", aList);
+		mv.setViewName("place");
+		return mv;
+	}
+
+	/* 추가2 페이지 */
 	@Override
 	@RequestMapping(value = "/add.slp", method = RequestMethod.GET)
 	public ModelAndView addRedirect() {

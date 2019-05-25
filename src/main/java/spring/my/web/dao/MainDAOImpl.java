@@ -27,4 +27,10 @@ public class MainDAOImpl implements MainDAO {
 		return session.insert("main.insertUser", uv);
 	}
 
+	@Override
+	public ArrayList<UserVO> selectAllUser(SqlSessionTemplate session) {
+		List<?> list = session.selectList("main.selectAllUser");
+		return (ArrayList<UserVO>) list;
+	}
+
 }

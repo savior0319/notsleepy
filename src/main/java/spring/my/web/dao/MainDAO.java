@@ -13,4 +13,6 @@ public interface MainDAO {
 
 	public int insertUser(SqlSessionTemplate session, UserVO uv);
 
+	public ArrayList<UserVO> selectAllUser(SqlSessionTemplate session);
+
 }

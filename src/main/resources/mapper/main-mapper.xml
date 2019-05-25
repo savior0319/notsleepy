@@ -33,5 +33,26 @@
 		    NOW(),
 		    DEFAULT)
 	</insert>
+	
+	<select id="selectAllUser" resultType="user">
+	   SELECT  /* selectAllUser by MainController placeRedirect Method */
+		  CONCAT(
+		    CONCAT(
+		      CONCAT(
+		        CONCAT(
+		          CONCAT(A.USER_NAME, '/'), 
+		          CASE WHEN A.USER_GENDER = 'M' THEN '남' ELSE '여' END
+		        ), 
+		        '/'
+		      ), 
+		      SUBSTRING_INDEX(A.USER_ADDR, ' ', -1)
+		    ), 
+		    A.USER_AGE
+		  ) AS userInfo 
+		FROM 
+		  USERTBL A 
+		WHERE 
+		  A.DELETE_YN = 'N'
+	</select>
 
 </mapper>

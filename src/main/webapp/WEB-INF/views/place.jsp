@@ -47,6 +47,13 @@
                     <label>주소</label>
                     <input type="text" name="address" id="address" required readonly>
                     <br>
+                    <label>참여자</label>
+                    <select name="userInfo" id="userInfo" required>
+                        <c:forEach items="${requestScope.user}" var="u">
+                            <option value="${u.userInfo}">${u.userInfo}</option>
+                        </c:forEach>
+                    </select>
+                    <br>
                     <label>비밀번호</label>
                     <input type="password" name="password" id="password" required>
                     <br>

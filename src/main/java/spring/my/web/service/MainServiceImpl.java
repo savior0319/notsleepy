@@ -34,4 +34,9 @@ public class MainServiceImpl implements MainService {
 		return md.insertUser(session, uv);
 	}
 
+	@Override
+	public ArrayList<UserVO> selectAllUser() {
+		return md.selectAllUser(session);
+	}
+
 }

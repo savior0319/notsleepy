@@ -2,10 +2,18 @@ package spring.my.web.vo;
 
 public class UserVO {
 
-	private String userSeq, deleteYn, userName, userGender, userAddr;
+	private String userSeq, deleteYn, userName, userGender, userAddr, userInfo;
 	private int userAge;
 
 	public UserVO() {
+	}
+
+	public String getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(String userInfo) {
+		this.userInfo = userInfo;
 	}
 
 	public int getUserAge() {
