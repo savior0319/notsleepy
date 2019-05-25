@@ -48,7 +48,7 @@
                     <input type="text" name="address" id="address" required readonly>
                     <br>
                     <label>참여자</label>
-                    <select name="userInfo" id="userInfo" required>
+                    <select name="userInfo" id="userInfo" multiple="" class="ui fluid search dropdown" required>
                         <c:forEach items="${requestScope.user}" var="u">
                             <option value="${u.userInfo}">${u.userInfo}</option>
                         </c:forEach>
@@ -268,6 +268,7 @@
     }
     // 다음지도 API END
 
+    // 장소선택
     function selectAddr(val) {
         const h5 = val.getElementsByTagName("h5");
         const span = val.getElementsByTagName("span");
@@ -301,6 +302,10 @@
         //    return false;
         // };
     }
+
+    // combobox
+    $('.ui.dropdown')
+        .dropdown();
 </script>
 
 </html>
