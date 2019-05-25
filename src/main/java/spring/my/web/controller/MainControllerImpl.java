@@ -47,11 +47,12 @@ public class MainControllerImpl implements MainController {
 		return mv;
 	}
 
-	/* 장소추가 저장 */
+	/* 장소추가 확인 */
 	@Override
 	@RequestMapping(value = "/placesave.slp", method = RequestMethod.POST)
 	public ModelAndView placesave(@RequestParam String location, @RequestParam String address,
-			@RequestParam String password, @RequestParam String[] userInfo) {
+			@RequestParam String password, @RequestParam String[] userInfo, @RequestParam String rdate,
+			@RequestParam String hour, @RequestParam String minute) {
 
 		ModelAndView mv = new ModelAndView();
 
@@ -73,11 +74,35 @@ public class MainControllerImpl implements MainController {
 			pv.setLocation(location);
 			pv.setAddress(address);
 			mv.addObject("place", pv);
-			System.out.println(aList.get(0).getUserName());
 			mv.addObject("user", aList);
+			mv.addObject("rdate", rdate);
+			mv.addObject("hour", hour);
+			mv.addObject("minute", minute);
 			mv.setViewName("chkplace");
 			return mv;
 		}
+	}
+
+	/* 장소추가 저장 */
+	@Override
+	@RequestMapping(value = "/placeprocess.slp", method = RequestMethod.POST)
+	public String placeprocess(@RequestParam String location, @RequestParam String address,
+			@RequestParam(required = false) String userInfo, @RequestParam String rdate, @RequestParam String hour,
+			@RequestParam String minute) {
+
+		// String insertDate = Utils.getInsertNumber();
+
+		// System.out.println(insertDate);
+		// System.out.println(location);
+		// System.out.println(address);
+		// System.out.println(rdate);
+		// System.out.println(hour);
+		// System.out.println(minute);
+		// String[] userInfoSplit = userInfo.split(",");
+		// for (String s : userInfoSplit) {
+		// System.out.println(s);
+		// }
+		return "redirect:/";
 	}
 
 	/* 참여자추가 저장 */

@@ -12,5 +12,9 @@ public interface MainController {
 
 	public ModelAndView placeRedirect();
 
-	public ModelAndView placesave(String location, String address, String password, String[] userInfo);
+	public String placeprocess(String location, String address, String userInfo, String rdate, String hour,
+			String minute);
+
+	public ModelAndView placesave(String location, String address, String password, String[] userInfo, String rdate,
+			String hour, String minute);
 }

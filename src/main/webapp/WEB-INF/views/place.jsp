@@ -10,6 +10,9 @@
     <link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df02547fc218af99e9e9d07b3e4b2f6f&libraries=services"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/Layouts/datepicker-ko.js"></script>
 </head>
 
 <body>
@@ -53,11 +56,60 @@
                             <option value="${u.userInfo}">${u.userInfo}</option>
                         </c:forEach>
                     </select>
+                    <label>날짜</label>
+                    <input type="text" name="rdate" id="rdate" size="12" readonly required>
+                    <br>
+                    <label>시간</label>
+                    <div class="ui two column grid">
+                        <div class="column">
+                            <select name="hour" id="hour" class="ui fluid dropdown" required>
+                                <option value="00">00시</option>
+                                <option value="01">01시</option>
+                                <option value="03">03시</option>
+                                <option value="04">04시</option>
+                                <option value="05">05시</option>
+                                <option value="06">06시</option>
+                                <option value="07">07시</option>
+                                <option value="08">08시</option>
+                                <option value="09">09시</option>
+                                <option value="10">10시</option>
+                                <option value="11">11시</option>
+                                <option value="12">12시</option>
+                                <option value="13">13시</option>
+                                <option value="14">14시</option>
+                                <option value="15">15시</option>
+                                <option value="16">16시</option>
+                                <option value="17">17시</option>
+                                <option value="18">18시</option>
+                                <option value="19" selected>19시</option>
+                                <option value="20">20시</option>
+                                <option value="21">21시</option>
+                                <option value="22">22시</option>
+                                <option value="23">23시</option>
+                            </select>
+                        </div>
+                        <div class="column">
+                            <select name="minute" id="minute" class="ui fluid dropdown" required>
+                                <option value="00" selected>00분</option>
+                                <option value="05">05분</option>
+                                <option value="10">10분</option>
+                                <option value="15">15분</option>
+                                <option value="20">20분</option>
+                                <option value="25">25분</option>
+                                <option value="30">30분</option>
+                                <option value="35">35분</option>
+                                <option value="40">40분</option>
+                                <option value="45">45분</option>
+                                <option value="50">50분</option>
+                                <option value="55">55분</option>
+                            </select>
+                        </div>
+                    </div>
                     <label>비밀번호</label>
                     <input type="password" name="password" id="password" required>
                     <br>
                     <div class="ui column centered grid">
-                        <button class="ui orange button" style="margin-top : 30px;"
+                        <button class="ui orange button" style="margin-top: 30px;"
                             onclick="return nextBtn();">다음</button>
                     </div>
                     <!-- <label>전화번호</label>
@@ -304,8 +356,12 @@
     }
 
     // combobox
-    $('.ui.dropdown')
-        .dropdown();
+    $('.ui.dropdown').dropdown();
+
+    // datepicker
+    $(function () {
+        $("#rdate").datepicker();
+    });
 </script>
 
 </html>

@@ -52,21 +52,19 @@
 					<option value="38">38</option>
 					<option value="39">39</option>
 				</select>
-				<div class="ui form">
-					<div>
-						<br>
-						<label>성별</label>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="userGender" id="userGenderM" required value="M">
-								<label>남</label>
-							</div>
+				<div>
+					<br>
+					<label>성별</label>
+					<div class="field">
+						<div class="ui radio checkbox">
+							<input type="radio" name="userGender" id="userGenderM" required value="M">
+							<label>남</label>
 						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="userGender" id="userGenderF" required value="F">
-								<label>여</label>
-							</div>
+					</div>
+					<div class="field">
+						<div class="ui radio checkbox">
+							<input type="radio" name="userGender" id="userGenderF" required value="F">
+							<label>여</label>
 						</div>
 					</div>
 				</div>
