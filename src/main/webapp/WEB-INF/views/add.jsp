@@ -5,7 +5,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>추가</title>
+	<title>참여자추가</title>
 	<jsp:include page="/Layouts/resource.jsp"></jsp:include>
 	<link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
 </head>
@@ -21,7 +21,7 @@
 	<jsp:include page="/Layouts/nav.jsp"></jsp:include>
 	<div class="ui main text container" style="margin-top: 80px;">
 		<div class="ui centered align header">
-			<div class="ui message box">추가</div>
+			<div class="ui message box">참여자추가</div>
 		</div>
 
 		<form class="ui form" action="/addprocess.slp" method="POST">
@@ -30,7 +30,7 @@
 				<input type="text" placeholder="이름" id="userName" name="userName" required maxlength="12">
 				<br> <br>
 				<label>나이</label>
-				<select name="userAge" id="userAge">
+				<select name="userAge" id="userAge" class="ui fluid dropdown" required>
 					<option value="20">20</option>
 					<option value="21">21</option>
 					<option value="22">22</option>
@@ -72,9 +72,10 @@
 				</div>
 				<br>
 				<label>지역</label>
-				<select name="userAddr" id="userAddr" required>
+				<select name="userAddr" id="userAddr" class="ui fluid dropdown" required>
 					<c:forEach items="${requestScope.city}" var="c">
-						<option value="${c.cityFirstSection} ${c.citySecondSection}">${c.cityFirstSection} ${c.citySecondSection}</option>
+						<option value="${c.cityFirstSection} ${c.citySecondSection}">${c.cityFirstSection}
+							${c.citySecondSection}</option>
 					</c:forEach>
 				</select>
 				<br>
@@ -90,6 +91,9 @@
 </body>
 
 <script>
+	// combobox
+	$('.ui.dropdown')
+		.dropdown();
 </script>
 
 </html>

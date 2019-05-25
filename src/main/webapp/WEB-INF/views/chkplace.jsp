@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>추가</title>
+<title>장소확인</title>
 <jsp:include page="/Layouts/resource.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
 </head>
@@ -14,7 +14,7 @@
 	<jsp:include page="/Layouts/nav.jsp"></jsp:include>
 	<div class="ui main text container" style="margin-top: 80px;">
 		<div class="ui centered align header">
-			<div class="ui message box">선택한 장소</div>
+			<div class="ui message box">장소확인</div>
 		</div>
 		<hr>
 		장소

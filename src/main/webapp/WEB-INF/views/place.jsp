@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>추가하기</title>
+    <title>장소추가</title>
     <jsp:include page="/Layouts/resource.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
     <script type="text/javascript"
@@ -16,7 +16,7 @@
     <jsp:include page="/Layouts/nav.jsp"></jsp:include>
     <div class="ui main text container" style="margin-top: 80px;">
         <div class="ui centered align header">
-            <div class="ui message box">장소선택</div>
+            <div class="ui message box">장소추가</div>
         </div>
         <div class="map_wrap">
             <div id="map" style="width: 100%; height: 60%; position: relative; overflow: hidden;"></div>

@@ -3,12 +3,12 @@
 	<div class="ui container">
 		<a href="/" class="header item">
 		<!--  <img class="logo" src="assets/images/logo.png"> -->
-			TEST
+			notsleepy
 		<!-- Test -->
 		</a>
 		<a href="/" class="item">홈</a>
-		<a class="item" href="/place.slp">추가1</a>
-		<a class="item" href="/add.slp">추가2</a>
+		<a class="item" href="/place.slp">장소추가</a>
+		<a class="item" href="/add.slp">참여자추가</a>
 		<!-- <div class="ui simple dropdown item">
 			메뉴
 			<i class="dropdown icon"></i>
