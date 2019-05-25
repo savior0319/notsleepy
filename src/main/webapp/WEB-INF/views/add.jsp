@@ -89,6 +89,18 @@
 </body>
 
 <script>
+	function savebtn() {
+		if ($("#userName").val() == "") {
+			alert('이름을 입력하세요');
+			return false;
+		}
+
+		if ($("#password").val() == "") {
+			alert('비밀번호를 입력하세요');
+			return false;
+		}
+	}
+
 	// combobox
 	$('.ui.dropdown')
 		.dropdown();

@@ -8,8 +8,7 @@
     <title>장소추가</title>
     <jsp:include page="/Layouts/resource.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
-    <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df02547fc218af99e9e9d07b3e4b2f6f&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df02547fc218af99e9e9d07b3e4b2f6f&libraries=services"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/Layouts/datepicker-ko.js"></script>
@@ -339,8 +338,19 @@
     }
 
     function nextBtn() {
-        if ($("#location").val() == "" && $("#address").val() == "") {
-            alert('장소를 선택하세요');
+        if ($("#location").val() == "" || $("#address").val() == "") {
+            alert('장소 및 주소를 선택하세요');
+            return false;
+        }
+
+        if ($("#userInfo").val() == "") {
+            alert('참여자를 선택하세요');
+            return false;
+        }
+
+
+        if ($("#rdate").val() == "" || $("#hour").val() == "" || $("#minute").val() == "") {
+            alert('날짜 및 시간을 선택하세요');
             return false;
         }
 
@@ -348,11 +358,6 @@
             alert('비밀번호를 입력하세요');
             return false;
         }
-
-        //else {
-        //    alert('준비중');
-        //    return false;
-        // };
     }
 
     // combobox

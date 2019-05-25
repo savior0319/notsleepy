@@ -86,11 +86,11 @@ public class MainControllerImpl implements MainController {
 	/* 장소추가 저장 */
 	@Override
 	@RequestMapping(value = "/placeprocess.slp", method = RequestMethod.POST)
-	public String placeprocess(@RequestParam String location, @RequestParam String address,
+	public ModelAndView placeprocess(@RequestParam String location, @RequestParam String address,
 			@RequestParam(required = false) String userInfo, @RequestParam String rdate, @RequestParam String hour,
 			@RequestParam String minute) {
 
-		// String insertDate = Utils.getInsertNumber();
+		String insertDate = Utils.getInsertNumber();
 
 		// System.out.println(insertDate);
 		// System.out.println(location);
@@ -102,7 +102,10 @@ public class MainControllerImpl implements MainController {
 		// for (String s : userInfoSplit) {
 		// System.out.println(s);
 		// }
-		return "redirect:/";
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("insertDate", insertDate);
+		mv.setViewName("placeprocesschk");
+		return mv;
 	}
 
 	/* 참여자추가 저장 */
