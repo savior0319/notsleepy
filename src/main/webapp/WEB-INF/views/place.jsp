@@ -339,27 +339,6 @@
     }
 
     function nextBtn() {
-        // 날짜 유효성 체크
-        try {
-            const today = new Date(),
-                dd = today.getDate(),
-                mm = today.getMonth() + 1,
-                yyyy = today.getFullYear();
-            const rdate = $('#rdate').val();
-            const ytemp = rdate.split('년'),
-                mtemp = ytemp[1].split('월'),
-                dtemp = mtemp[1].split('일'),
-                ymd = ytemp[0] + "" + mtemp[0] + "" + dtemp[0];
-            const todate = ymd.replace(/ /gi, "");
-            const now = yyyy + "" + mm + "" + dd;
-            if (Number(todate) - Number(now) < 0) {
-                alert('현재일 이전 날짜는 선택 할 수 없습니다.')
-                return false;
-            } else return true;
-        } catch (error) {
-            console.error();
-        }
-
         // 입력 값 체크
         if ($("#location").val() == "" || $("#address").val() == "") {
             alert('장소 및 주소를 선택하세요');
@@ -374,8 +353,24 @@
         if ($("#rdate").val() == "" || $("#hour").val() == "" || $("#minute").val() == "") {
             alert('날짜 및 시간을 선택하세요');
             return false;
+        } else {
+            // 날짜 유효성 체크
+            const today = new Date(),
+                dd = today.getDate(),
+                mm = today.getMonth() + 1,
+                yyyy = today.getFullYear();
+            const rdate = $('#rdate').val();
+            const ytemp = rdate.split('년'),
+                mtemp = ytemp[1].split('월'),
+                dtemp = mtemp[1].split('일'),
+                ymd = ytemp[0] + "" + mtemp[0] + "" + dtemp[0];
+            const todate = ymd.replace(/ /gi, "");
+            const now = yyyy + "" + mm + "" + dd;
+            if (Number(todate) - Number(now) < 0) {
+                alert('현재일 이전 날짜는 선택 할 수 없습니다.')
+                return false;
+            }
         }
-
         if ($("#password").val() == "") {
             alert('비밀번호를 입력하세요');
             return false;
