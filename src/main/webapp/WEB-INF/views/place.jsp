@@ -53,7 +53,6 @@
                             <option value="${u.userInfo}">${u.userInfo}</option>
                         </c:forEach>
                     </select>
-                    <br>
                     <label>비밀번호</label>
                     <input type="password" name="password" id="password" required>
                     <br>
