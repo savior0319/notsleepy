@@ -25,7 +25,7 @@ public class MainControllerImpl implements MainController {
 	@Resource(name = "MainService")
 	private MainService ms;
 
-	/* 추가1 페이지 */
+	/* 장소추가 페이지 */
 	@Override
 	@RequestMapping(value = "/place.slp", method = RequestMethod.GET)
 	public ModelAndView placeRedirect() {
@@ -36,7 +36,7 @@ public class MainControllerImpl implements MainController {
 		return mv;
 	}
 
-	/* 추가2 페이지 */
+	/* 참여자추가 페이지 */
 	@Override
 	@RequestMapping(value = "/add.slp", method = RequestMethod.GET)
 	public ModelAndView addRedirect() {
@@ -47,10 +47,11 @@ public class MainControllerImpl implements MainController {
 		return mv;
 	}
 
+	/* 장소추가 저장 */
 	@Override
 	@RequestMapping(value = "/placesave.slp", method = RequestMethod.POST)
 	public ModelAndView placesave(@RequestParam String location, @RequestParam String address,
-			@RequestParam String password) {
+			@RequestParam String password, @RequestParam String[] userInfo) {
 
 		ModelAndView mv = new ModelAndView();
 
@@ -58,15 +59,28 @@ public class MainControllerImpl implements MainController {
 			mv.setViewName("pwderr");
 			return mv;
 		} else {
+			ArrayList<UserVO> aList = new ArrayList<UserVO>();
+			for (String s : userInfo) {
+				UserVO uv = new UserVO();
+				String[] tempInfo = s.split("/");
+				uv.setUserName(tempInfo[0]);
+				uv.setUserGender(tempInfo[1]);
+				uv.setUserAddr(tempInfo[2]);
+				uv.setUserAge(Integer.parseInt(tempInfo[3]));
+				aList.add(uv);
+			}
 			placeVO pv = new placeVO();
 			pv.setLocation(location);
 			pv.setAddress(address);
 			mv.addObject("place", pv);
+			System.out.println(aList.get(0).getUserName());
+			mv.addObject("user", aList);
 			mv.setViewName("chkplace");
 			return mv;
 		}
 	}
 
+	/* 참여자추가 저장 */
 	@Override
 	@RequestMapping(value = "/addprocess.slp", method = RequestMethod.POST)
 	public ModelAndView addprocess(@RequestParam String password, @ModelAttribute UserVO uv) {

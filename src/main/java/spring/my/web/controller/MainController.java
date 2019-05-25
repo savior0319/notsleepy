@@ -8,9 +8,9 @@ public interface MainController {
 
 	public ModelAndView addRedirect();
 
-	public ModelAndView placesave(String location, String address, String password);
-
 	public ModelAndView addprocess(String pwd, UserVO uv);
 
 	public ModelAndView placeRedirect();
+
+	public ModelAndView placesave(String location, String address, String password, String[] userInfo);
 }

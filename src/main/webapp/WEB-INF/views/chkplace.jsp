@@ -4,10 +4,10 @@
 <html>
 
 <head>
-<meta charset="UTF-8">
-<title>장소확인</title>
-<jsp:include page="/Layouts/resource.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
+	<meta charset="UTF-8">
+	<title>장소확인</title>
+	<jsp:include page="/Layouts/resource.jsp"></jsp:include>
+	<link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
 </head>
 
 <body>
@@ -17,12 +17,25 @@
 			<div class="ui message box">장소확인</div>
 		</div>
 		<hr>
-		장소
-		<h3>${place.location}</h3>
+		<h3>장소</h3>
+		${place.location}
 		<hr>
-		주소
-		<h3>${place.address}</h3>
+		<h3>주소</h3>
+		${place.address}
 		<hr>
+		<h3>참여자</h3>
+		<table class="ui large table">
+			<tbody>
+				<c:forEach items="${requestScope.user}" var="u">
+					<tr>
+						<td> ${u.userName}</td>
+						<td> ${u.userGender}</td>
+						<td> ${u.userAddr}</td>
+						<td> ${u.userAge}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 		<br>
 		<div class="ui column centered grid">
 			<button class="ui primary button" onclick="confirm();">확인</button>
