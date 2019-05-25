@@ -28,9 +28,9 @@
 			<hr>
 			<h3>시간</h3>
 			${rdate} ${hour}시 ${minute}분
-			<input type="hidden" name="rdate" value="${rdate}">
-			<input type="hidden" name="hour" value="${hour}">
-			<input type="hidden" name="minute" value="${minute}">
+			<input type="hidden" name="rdate" id="rdate" value="${rdate}">
+			<input type="hidden" name="hour" id="hour" value="${hour}">
+			<input type="hidden" name="minute" id="minute" value="${minute}">
 			<hr>
 			<h3>참여자</h3>
 			<table class="ui large table">

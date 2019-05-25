@@ -8,7 +8,8 @@
     <title>장소추가</title>
     <jsp:include page="/Layouts/resource.jsp"></jsp:include>
     <link rel="stylesheet" type="text/css" href="Layouts/mapstyle.css">
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df02547fc218af99e9e9d07b3e4b2f6f&libraries=services"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=df02547fc218af99e9e9d07b3e4b2f6f&libraries=services"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/Layouts/datepicker-ko.js"></script>
@@ -338,6 +339,28 @@
     }
 
     function nextBtn() {
+        // 날짜 유효성 체크
+        try {
+            const today = new Date(),
+                dd = today.getDate(),
+                mm = today.getMonth() + 1,
+                yyyy = today.getFullYear();
+            const rdate = $('#rdate').val();
+            const ytemp = rdate.split('년'),
+                mtemp = ytemp[1].split('월'),
+                dtemp = mtemp[1].split('일'),
+                ymd = ytemp[0] + "" + mtemp[0] + "" + dtemp[0];
+            const todate = ymd.replace(/ /gi, "");
+            const now = yyyy + "" + mm + "" + dd;
+            if (Number(todate) - Number(now) < 0) {
+                alert('현재일 이전 날짜는 선택 할 수 없습니다.')
+                return false;
+            } else return true;
+        } catch (error) {
+            console.error();
+        }
+
+        // 입력 값 체크
         if ($("#location").val() == "" || $("#address").val() == "") {
             alert('장소 및 주소를 선택하세요');
             return false;
@@ -347,7 +370,6 @@
             alert('참여자를 선택하세요');
             return false;
         }
-
 
         if ($("#rdate").val() == "" || $("#hour").val() == "" || $("#minute").val() == "") {
             alert('날짜 및 시간을 선택하세요');
