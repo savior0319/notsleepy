@@ -3785,7 +3785,7 @@ $.fn.dropdown.settings = {
     addResult     : 'Add <b>{term}</b>',
     count         : '{count} selected',
     maxSelections : 'Max {maxCount} selections',
-    noResults     : 'No results found.',
+    noResults     : '검색결과가 없습니다.',
     serverError   : 'There was an error contacting the server'
   },
 
