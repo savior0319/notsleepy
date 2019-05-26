@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import spring.my.web.service.MainService;
 import spring.my.web.vo.CityVO;
+import spring.my.web.vo.ReserveVO;
 import spring.my.web.vo.UserVO;
 import spring.my.web.vo.placeVO;
 
@@ -68,6 +69,7 @@ public class MainControllerImpl implements MainController {
 				uv.setUserGender(tempInfo[1]);
 				uv.setUserAddr(tempInfo[2]);
 				uv.setUserAge(Integer.parseInt(tempInfo[3]));
+				uv.setUserSeq(tempInfo[4]);
 				aList.add(uv);
 			}
 			placeVO pv = new placeVO();
@@ -90,20 +92,39 @@ public class MainControllerImpl implements MainController {
 			@RequestParam(required = false) String userInfo, @RequestParam String rdate, @RequestParam String hour,
 			@RequestParam String minute) {
 
-		String insertDate = Utils.getInsertNumber();
+		// 장소저장번호 생성
+		String rNo = Utils.getInsertNumber();
 
-		// System.out.println(insertDate);
-		// System.out.println(location);
-		// System.out.println(address);
-		// System.out.println(rdate);
-		// System.out.println(hour);
-		// System.out.println(minute);
-		// String[] userInfoSplit = userInfo.split(",");
-		// for (String s : userInfoSplit) {
-		// System.out.println(s);
-		// }
+		String[] rdateYSplit = rdate.split("년");
+		String[] rdateMSplit = rdateYSplit[1].split("월");
+		String[] rdateDSplit = rdateMSplit[1].split("일");
+		String rdateYMD = rdateYSplit[0].replace(" ", "") + "-" + rdateMSplit[0].replace(" ", "") + "-"
+				+ rdateDSplit[0].replace(" ", "");
+		String hourMin = hour + ":" + minute;
+		String[] userInfoSplit = userInfo.split(",");
+
+		// 장소정보 저장 (RESERVE)
+		ReserveVO rv = new ReserveVO();
+		rv.setRNo(rNo);
+		rv.setLocation(location);
+		rv.setAddress(address);
+		rv.setrDate(rdateYMD + " "+ hourMin);
+		
+		// System.out.println(rv.getRNo());
+		// System.out.println(rv.getLocation());
+		// System.out.println(rv.getAddress());
+		// System.out.println(rv.getrDate());
+
+		// 사용자 시퀀스 정보가져와서 저장 (RESERVEDT)
+		String[] userSplit = new String[4];
+
+		for (String s : userInfoSplit) {
+			userSplit = s.split("/");
+			// System.out.println(userSplit[4]);
+		}
+
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("insertDate", insertDate);
+		mv.addObject("rNo", rNo);
 		mv.setViewName("placeprocesschk");
 		return mv;
 	}

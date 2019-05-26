@@ -6,7 +6,8 @@
 		SELECT /* selectAddress by MainController addRedirect Method */
 			CITY_SEQ AS citySeq,
 			CITY_FIRST_SECTION AS cityFirstSection,
-			CITY_SECOND_SECTION AS citySecondSection,
+			CITY_SECOND_SECTION AS
+			citySecondSection,
 			INSERT_DATE AS insertDate,
 			INSERT_USER AS insertUser,
 			CITY_CODE AS cityCode
@@ -15,43 +16,39 @@
 
 	<insert id="insertUser" parameterType="user">
 		INSERT /* insertUser by MainController addprocess Method */
-		INTO USERTBL
-		  (USER_SEQ, 
-		   DELETE_YN,
-		   USER_NAME,
-		   USER_GENDER,
-		   USER_AGE,
-		   USER_ADDR,
-		   INSERT_DATE,
-		   INSERT_USER)
-		VALUES (NULL,
-		    DEFAULT,
-		    #{userName},
-		    #{userGender},
-		    #{userAge},
-		    #{userAddr},
-		    NOW(),
-		    DEFAULT)
+		  INTO USERTBL
+			(USER_SEQ,
+			DELETE_YN,
+			USER_NAME,
+			USER_GENDER,
+			USER_AGE,
+			USER_ADDR,
+			INSERT_DATE,
+			INSERT_USER)
+		  VALUES (NULL,
+			DEFAULT,
+			#{userName},
+			#{userGender},
+			#{userAge},
+			#{userAddr},
+			NOW(),
+			DEFAULT)
 	</insert>
-	
+
 	<select id="selectAllUser" resultType="user">
 		SELECT /* selectAllUser by MainController placeRedirect Method */
-		    CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(A.USER_NAME,
-		    '/'),
-		    CASE 
-		        WHEN A.USER_GENDER = 'M' THEN '남'
-		        ELSE '여'
-		    END ),
-		    '/'),
-		    SUBSTRING_INDEX(A.USER_ADDR,
-		    ' ',
-		    -1)),
-		    '/'),
-		    A.USER_AGE ) AS userInfo 
+		  CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(CONCAT(A.USER_NAME, '/'),
+				CASE
+				WHEN A.USER_GENDER = 'M'
+				THEN '남'
+				ELSE '여'
+				END ),'/'),
+		  SUBSTRING_INDEX(A.USER_ADDR, ' ', -1)), '/'), A.USER_AGE ) AS userInfo,
+		  A.USER_SEQ as userSeq
 		FROM
-		    USERTBL A 
+		  USERTBL A
 		WHERE
-		    A.DELETE_YN = 'N'
+		  A.DELETE_YN = 'N'
 	</select>
 
 </mapper>
