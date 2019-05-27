@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import spring.my.web.dao.MainDAO;
 import spring.my.web.vo.CityVO;
+import spring.my.web.vo.ReserveDtVO;
+import spring.my.web.vo.ReserveVO;
 import spring.my.web.vo.UserVO;
 
 @Service(value = "MainService")
@@ -37,6 +39,16 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public ArrayList<UserVO> selectAllUser() {
 		return md.selectAllUser(session);
+	}
+
+	@Override
+	public int saveReserve(ReserveVO rv) {
+		return md.saveReserve(session, rv);
+	}
+
+	@Override
+	public int saveReserveDt(ReserveDtVO rDt) {
+		return md.saveReserveDt(session, rDt);
 	}
 
 }

@@ -5,6 +5,9 @@
 	<typeAliases>
 		<typeAlias type="spring.my.web.vo.CityVO" alias="city" />
 		<typeAlias type="spring.my.web.vo.UserVO" alias="user" />
+		<typeAlias type="spring.my.web.vo.PlaceVO" alias="place" />
+		<typeAlias type="spring.my.web.vo.ReserveVO" alias="reserve" />
+		<typeAlias type="spring.my.web.vo.ReserveDtVO" alias="reserveDt" />
 	</typeAliases>
 
 </configuration>

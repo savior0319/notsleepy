@@ -15,7 +15,8 @@ import spring.my.web.service.MainService;
 import spring.my.web.vo.CityVO;
 import spring.my.web.vo.ReserveVO;
 import spring.my.web.vo.UserVO;
-import spring.my.web.vo.placeVO;
+import spring.my.web.vo.PlaceVO;
+import spring.my.web.vo.ReserveDtVO;
 
 @Controller
 public class MainControllerImpl implements MainController {
@@ -72,7 +73,7 @@ public class MainControllerImpl implements MainController {
 				uv.setUserSeq(tempInfo[4]);
 				aList.add(uv);
 			}
-			placeVO pv = new placeVO();
+			PlaceVO pv = new PlaceVO();
 			pv.setLocation(location);
 			pv.setAddress(address);
 			mv.addObject("place", pv);
@@ -108,22 +109,30 @@ public class MainControllerImpl implements MainController {
 		rv.setRNo(rNo);
 		rv.setLocation(location);
 		rv.setAddress(address);
-		rv.setrDate(rdateYMD + " "+ hourMin);
-		
-		// System.out.println(rv.getRNo());
-		// System.out.println(rv.getLocation());
-		// System.out.println(rv.getAddress());
-		// System.out.println(rv.getrDate());
+		rv.setrDate(rdateYMD + " " + hourMin);
+
+		int rResult = ms.saveReserve(rv);
 
 		// 사용자 시퀀스 정보가져와서 저장 (RESERVEDT)
 		String[] userSplit = new String[4];
+		int rDtResult = 0;
 
 		for (String s : userInfoSplit) {
+			ReserveDtVO rDt = new ReserveDtVO();
 			userSplit = s.split("/");
-			// System.out.println(userSplit[4]);
+			rDt.setRNo(rNo);
+			rDt.setUserSeq(userSplit[4]);
+
+			rResult = ms.saveReserveDt(rDt);
 		}
 
 		ModelAndView mv = new ModelAndView();
+		if (rResult < 0 || rDtResult < 0) {
+			mv.addObject("rNo", rNo);
+			mv.setViewName("placeprocessfail");
+			return mv;
+		}
+
 		mv.addObject("rNo", rNo);
 		mv.setViewName("placeprocesschk");
 		return mv;

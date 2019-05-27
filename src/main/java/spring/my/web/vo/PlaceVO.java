@@ -1,6 +1,6 @@
 package spring.my.web.vo;
 
-public class placeVO {
+public class PlaceVO {
 
 	private String location, address;
 

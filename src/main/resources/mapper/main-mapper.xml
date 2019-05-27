@@ -50,5 +50,40 @@
 		WHERE
 		  A.DELETE_YN = 'N'
 	</select>
+	
+	<insert id="saveReserve" parameterType="reserve">
+	   INSERT /* saveReserve by MainController placeprocess Method */
+        INTO RESERVE(
+                R_NO,
+                DELETE_YN,
+                LOCATION,
+                ADDRESS,
+                R_DATE,
+                INSERT_DATE,
+                INSERT_USER)
+        VALUES (#{rNo},
+                DEFAULT,
+                #{location},
+                #{address},
+                #{rDate},
+                DEFAULT,
+                DEFAULT)
+	</insert>
+	
+	   <insert id="saveReserveDt" parameterType="reserveDt">
+       INSERT /* saveReserveDt by MainController placeprocess Method */
+        INTO RESERVEDT(
+                R_NO,
+                USER_SEQ,
+                DELETE_YN,
+                INSERT_DATE,
+                INSERT_USER)
+        VALUES (#{rNo},
+                #{userSeq},
+                DEFAULT, 
+                DEFAULT,
+                DEFAULT)
+    </insert>
+	
 
 </mapper>
