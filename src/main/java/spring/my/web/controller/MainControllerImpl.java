@@ -13,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import spring.my.web.service.MainService;
 import spring.my.web.vo.CityVO;
-import spring.my.web.vo.ReserveVO;
-import spring.my.web.vo.UserVO;
 import spring.my.web.vo.PlaceVO;
 import spring.my.web.vo.ReserveDtVO;
+import spring.my.web.vo.ReserveVO;
+import spring.my.web.vo.UserVO;
 
 @Controller
 public class MainControllerImpl implements MainController {
@@ -158,7 +158,22 @@ public class MainControllerImpl implements MainController {
 				return mv;
 			}
 		}
+	}
 
+	/* 장소확인 비밀번호 체크 */
+	@Override
+	@RequestMapping(value = "/reservepwdchk.slp", method = RequestMethod.POST)
+	public ModelAndView reservepwdchk(@RequestParam String pwd) {
+		
+		ModelAndView mv = new ModelAndView();
+
+		if (!pwd.equals("0519")) {
+			mv.setViewName("pwderr");
+			return mv;
+		} else {
+			mv.setViewName("redirect:/");
+			return mv;
+		}
 	}
 
 }

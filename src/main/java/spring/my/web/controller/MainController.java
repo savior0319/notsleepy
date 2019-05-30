@@ -17,4 +17,6 @@ public interface MainController {
 
 	public ModelAndView placesave(String location, String address, String password, String[] userInfo, String rdate,
 			String hour, String minute);
+
+	public ModelAndView reservepwdchk(String pwd);
 }
