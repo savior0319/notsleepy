@@ -162,16 +162,18 @@ public class MainControllerImpl implements MainController {
 
 	/* 장소확인 비밀번호 체크 */
 	@Override
-	@RequestMapping(value = "/reservepwdchk.slp", method = RequestMethod.POST)
+	@RequestMapping(value = "/reserve.slp", method = RequestMethod.POST)
 	public ModelAndView reservepwdchk(@RequestParam String pwd) {
-		
+
 		ModelAndView mv = new ModelAndView();
 
 		if (!pwd.equals("0519")) {
 			mv.setViewName("pwderr");
 			return mv;
 		} else {
-			mv.setViewName("redirect:/");
+			ArrayList<ReserveVO> aList = ms.selectReserve();
+			mv.addObject("reserve", aList);
+			mv.setViewName("reserve");
 			return mv;
 		}
 	}

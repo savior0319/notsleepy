@@ -65,4 +65,5 @@ public class ReserveVO {
 	public void setInsertDate(Timestamp insertDate) {
 		this.insertDate = insertDate;
 	}
+
 }

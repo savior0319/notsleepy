@@ -21,4 +21,6 @@ public interface MainDAO {
 
 	public int saveReserveDt(SqlSessionTemplate session, ReserveDtVO rDt);
 
+	public ArrayList<ReserveVO> selectReserve(SqlSessionTemplate session);
+
 }

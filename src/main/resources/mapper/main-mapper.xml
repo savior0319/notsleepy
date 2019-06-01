@@ -70,7 +70,7 @@
                 DEFAULT)
 	</insert>
 	
-	   <insert id="saveReserveDt" parameterType="reserveDt">
+	<insert id="saveReserveDt" parameterType="reserveDt">
        INSERT /* saveReserveDt by MainController placeprocess Method */
         INTO RESERVEDT(
                 R_NO,
@@ -83,7 +83,17 @@
                 DEFAULT, 
                 DEFAULT,
                 DEFAULT)
-    </insert>
-	
-
-</mapper>
+     </insert>
+    
+     <select id="selectReserve" resultType="reserve">
+        SELECT /* selectReserve by MainController reservepwdchk Method */
+	          R_NO         AS rNo,
+	          DELETE_YN    AS deleteYn,
+	          LOCATION     AS location,
+		      ADDRESS      AS address,
+	          DATE_FORMAT(R_DATE, '%Y년 %m월 %d일 %H시 %i분') AS rDate,
+	          INSERT_DATE  AS insertDate
+        FROM RESERVE
+     </select>
+         
+</mapper> 

@@ -46,4 +46,10 @@ public class MainDAOImpl implements MainDAO {
 		return session.insert("main.saveReserveDt", rDt);
 	}
 
+	@Override
+	public ArrayList<ReserveVO> selectReserve(SqlSessionTemplate session) {
+		List<?> list = session.selectList("main.selectReserve");
+		return (ArrayList<ReserveVO>) list;
+	}
+
 }

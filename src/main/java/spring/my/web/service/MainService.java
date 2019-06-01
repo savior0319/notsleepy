@@ -19,4 +19,6 @@ public interface MainService {
 
 	public int saveReserveDt(ReserveDtVO rDt);
 
+	public ArrayList<ReserveVO> selectReserve();
+
 }

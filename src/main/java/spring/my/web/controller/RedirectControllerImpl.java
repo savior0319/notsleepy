@@ -8,10 +8,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class RedirectControllerImpl implements RedirectController {
 
 	@Override
-	@RequestMapping(value = "/reservegrantchk.slp")
+	@RequestMapping(value = "/reservechk.slp")
 	public ModelAndView reservechk() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("reservegrantchk");
+		mv.setViewName("reservechk");
 		return mv;
 	}
 

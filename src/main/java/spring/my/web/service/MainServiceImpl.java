@@ -51,4 +51,9 @@ public class MainServiceImpl implements MainService {
 		return md.saveReserveDt(session, rDt);
 	}
 
+	@Override
+	public ArrayList<ReserveVO> selectReserve() {
+		return md.selectReserve(session);
+	}
+
 }
